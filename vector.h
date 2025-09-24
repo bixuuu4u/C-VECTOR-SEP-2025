@@ -13,5 +13,7 @@ void pop_back(Vector *v);
 int size(Vector *v);
 int capacity(Vector *v);
 int empty(Vector *v);
+int front(Vector *v);
+int back(Vector *v);
 
 #endif // VECTOR_H

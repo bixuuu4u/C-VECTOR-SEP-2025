@@ -16,13 +16,30 @@ int main()
         printf("%d ", v.data[i]);
     }
     printf("\n");
-    pop_back(&v);
+    // pop_back(&v);
     for (int i = 0; i < v.size; i++)
     {
         printf("%d ", v.data[i]);
     }
 
+    printf("Front %d\nBack %d\n", front(&v), back(&v));
+
     return 0;
+}
+
+int back(Vector *v)
+{
+    if (v->size > 0)
+        return v->data[v->size - 1];
+    else
+        return -1;
+}
+int front(Vector *v)
+{
+    if (v->size > 0)
+        return v->data[0];
+    else
+        return -1;
 }
 
 int empty(Vector *v)
