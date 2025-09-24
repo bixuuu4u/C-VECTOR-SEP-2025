@@ -10,10 +10,15 @@ typedef struct Vector
 void init(Vector *v);
 void push_back(Vector *v, int value);
 void pop_back(Vector *v);
+void display(Vector *v);
 int size(Vector *v);
 int capacity(Vector *v);
 int empty(Vector *v);
 int front(Vector *v);
 int back(Vector *v);
+int at(Vector *v, int position);
+void insert(Vector *v, int position, int value);
+void erase(Vector *v, int position);
+void clear(Vector *v);
 
 #endif // VECTOR_H
