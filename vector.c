@@ -25,12 +25,30 @@ int main()
     return 0;
 }
 
-void init(Vector *v)
+int empty(Vector *v)
 {
-    v->size = 0;
-    v->capacity = 1;
-    v->data = (int *)malloc(sizeof(int) * v->capacity);
+    return v->size == 0;
 }
+
+int capacity(Vector *v)
+{
+    return v->capacity;
+}
+
+int size(Vector *v)
+{
+    return v->size;
+}
+
+void pop_back(Vector *v)
+{
+    if (v->size == 0)
+    {
+        return;
+    }
+    v->size--;
+}
+
 void push_back(Vector *v, int value)
 {
     if (v->capacity == v->size)
@@ -42,11 +60,10 @@ void push_back(Vector *v, int value)
     v->data[v->size] = value;
     v->size++;
 }
-void pop_back(Vector *v)
+
+void init(Vector *v)
 {
-    if (v->size == 0)
-    {
-        return;
-    }
-    v->size--;
+    v->size = 0;
+    v->capacity = 1;
+    v->data = (int *)malloc(sizeof(int) * v->capacity);
 }

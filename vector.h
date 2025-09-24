@@ -10,6 +10,8 @@ typedef struct Vector
 void init(Vector *v);
 void push_back(Vector *v, int value);
 void pop_back(Vector *v);
-
+int size(Vector *v);
+int capacity(Vector *v);
+int empty(Vector *v);
 
 #endif // VECTOR_H
