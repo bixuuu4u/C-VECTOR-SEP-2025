@@ -2,46 +2,12 @@
 #include <stdlib.h>
 #include "vector.h"
 
-int main()
-{
-    Vector v;
-    init(&v);
-
-    push_back(&v, 1);
-    push_back(&v, 2);
-    push_back(&v, 3);
-    push_back(&v, 4);
-    push_back(&v, 5);
-
-    // insert(&v, 0, 99);
-    // insert(&v, 0, 99);
-    // insert(&v, 6, 991);
-    // insert(&v, 3, 991);
-
-    display(&v);
-    erase(&v, 1);
-    display(&v);
-    printf("Size %d\nCapacity %d\n", size(&v), capacity(&v));
-
-    clear(&v);
-    printf(".\n");
-    push_back(&v, 111);
-    push_back(&v, 121);
-    push_back(&v, 131);
-    push_back(&v, 141);
-    display(&v);
-    printf("..\n");
-
-    destroy(&v);
-    init(&v);
-    push_back(&v, 11);
-    push_back(&v, 12);
-    push_back(&v, 13);
-    push_back(&v, 14);
-    display(&v);
-
-    return 0;
-}
+/************************************************************
+ *  C Vector Implementation
+ *  Author: Biswajeet Sahoo
+ *  GitHub: https://github.com/bixuuu4u/C-VECTOR-SEP-2025.git
+ *  Description: STL-like vector container implemented in C
+ ************************************************************/
 
 void erase(Vector *v, int position)
 {
