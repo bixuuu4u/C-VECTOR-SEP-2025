@@ -7,7 +7,7 @@ typedef struct Vector
     int capacity;
 } Vector;
 
-void init(Vector *v);
+int init(Vector *v);
 void push_back(Vector *v, int value);
 void pop_back(Vector *v);
 void display(Vector *v);

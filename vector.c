@@ -101,8 +101,7 @@ void insert(Vector *v, int position, int value)
 
     if (position == v->size)
     {
-        v->data[v->size] = value;
-        v->size++;
+        push_back(v, value);
         return;
     }
 
@@ -188,9 +187,20 @@ void push_back(Vector *v, int value)
     v->size++;
 }
 
-void init(Vector *v)
+int init(Vector *v)
 {
+    if (!v)
+    {
+        fprintf(stderr, "Error: NULL vector pointer\n");
+        return -1;
+    }
     v->size = 0;
     v->capacity = 1;
-    v->data = (int *)malloc(sizeof(int) * v->capacity);
+    v->data = malloc(sizeof(int) * v->capacity);
+    if (!v->data)
+    {
+        fprintf(stderr, "Error: Memory allocation failed\n");
+        return -2;
+    }
+    return 0;
 }
