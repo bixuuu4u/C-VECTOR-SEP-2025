@@ -14,16 +14,75 @@ int main()
     push_back(&v, 5);
 
     // insert(&v, 0, 99);
+    // insert(&v, 0, 99);
     // insert(&v, 6, 991);
-    insert(&v, 3, 991);
+    // insert(&v, 3, 991);
+
+    display(&v);
+    erase(&v, 1);
     display(&v);
     printf("Size %d\nCapacity %d\n", size(&v), capacity(&v));
+
+    clear(&v);
+    printf(".\n");
+    push_back(&v, 111);
+    push_back(&v, 121);
+    push_back(&v, 131);
+    push_back(&v, 141);
+    display(&v);
+    printf("..\n");
+
+    destroy(&v);
+    init(&v);
+    push_back(&v, 11);
+    push_back(&v, 12);
+    push_back(&v, 13);
+    push_back(&v, 14);
+    display(&v);
 
     return 0;
 }
 
+void erase(Vector *v, int position)
+{
+    if (position < 0 || position >= v->size)
+    {
+        return;
+    }
+
+    if (position == v->size - 1)
+    {
+        pop_back(v);
+        return;
+    }
+
+    for (int i = position; i < v->size - 1; i++)
+    {
+        v->data[i] = v->data[i + 1];
+    }
+    v->size--;
+}
+
+void destroy(Vector *v)
+{
+    free(v->data);
+    v->data = NULL;
+    v->size = 0;
+    v->capacity = 0;
+}
+
+void clear(Vector *v)
+{
+    v->size = 0;
+}
+
 void insert(Vector *v, int position, int value)
 {
+    if (v->size == v->capacity)
+    {
+        v->capacity *= 2;
+        v->data = (int *)realloc(v->data, sizeof(int) * v->capacity);
+    }
     if (position < 0 || position > v->size)
     {
         return;
@@ -115,6 +174,10 @@ void pop_back(Vector *v)
 
 void push_back(Vector *v, int value)
 {
+    if (v->data == NULL || v->capacity == 0)
+    {
+        return;
+    }
     if (v->capacity == v->size)
     {
         v->capacity *= 2;

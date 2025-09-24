@@ -20,5 +20,6 @@ int at(Vector *v, int position);
 void insert(Vector *v, int position, int value);
 void erase(Vector *v, int position);
 void clear(Vector *v);
+void destroy(Vector *v);
 
 #endif // VECTOR_H
