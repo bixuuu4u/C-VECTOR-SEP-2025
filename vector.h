@@ -7,19 +7,19 @@ typedef struct Vector
     int capacity;
 } Vector;
 
-int init(Vector *v);
-void push_back(Vector *v, int value);
-void pop_back(Vector *v);
-void display(Vector *v);
-int size(Vector *v);
-int capacity(Vector *v);
-int empty(Vector *v);
-int front(Vector *v);
-int back(Vector *v);
-int at(Vector *v, int position);
-void insert(Vector *v, int position, int value);
-void erase(Vector *v, int position);
-void clear(Vector *v);
-void destroy(Vector *v);
+int vector_init(Vector *v);
+void vector_push_back(Vector *v, int value);
+void vector_pop_back(Vector *v);
+void vector_display(Vector *v);
+int vector_size(Vector *v);
+int vector_capacity(Vector *v);
+int vector_empty(Vector *v);
+int vector_front(Vector *v);
+int vector_back(Vector *v);
+int vector_at(Vector *v, int position);
+void vector_insert(Vector *v, int position, int value);
+void vector_erase(Vector *v, int position);
+void vector_clear(Vector *v);
+void vector_destroy(Vector *v);
 
 #endif // VECTOR_H

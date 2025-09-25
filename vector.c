@@ -9,7 +9,7 @@
  *  Description: STL-like vector container implemented in C
  ************************************************************/
 
-void erase(Vector *v, int position)
+void vector_erase(Vector *v, int position)
 {
     if (position < 0 || position >= v->size)
     {
@@ -18,7 +18,7 @@ void erase(Vector *v, int position)
 
     if (position == v->size - 1)
     {
-        pop_back(v);
+        vector_pop_back(v);
         return;
     }
 
@@ -29,7 +29,7 @@ void erase(Vector *v, int position)
     v->size--;
 }
 
-void destroy(Vector *v)
+void vector_destroy(Vector *v)
 {
     free(v->data);
     v->data = NULL;
@@ -37,12 +37,12 @@ void destroy(Vector *v)
     v->capacity = 0;
 }
 
-void clear(Vector *v)
+void vector_clear(Vector *v)
 {
     v->size = 0;
 }
 
-void insert(Vector *v, int position, int value)
+void vector_insert(Vector *v, int position, int value)
 {
     if (v->size == v->capacity)
     {
@@ -67,7 +67,7 @@ void insert(Vector *v, int position, int value)
 
     if (position == v->size)
     {
-        push_back(v, value);
+        vector_push_back(v, value);
         return;
     }
 
@@ -79,7 +79,7 @@ void insert(Vector *v, int position, int value)
     v->size++;
 }
 
-int at(Vector *v, int position)
+int vector_at(Vector *v, int position)
 {
     if (position >= 0 && position < v->size)
     {
@@ -88,7 +88,7 @@ int at(Vector *v, int position)
     return -1;
 }
 
-int back(Vector *v)
+int vector_back(Vector *v)
 {
     if (v->size > 0)
         return v->data[v->size - 1];
@@ -96,7 +96,7 @@ int back(Vector *v)
         return -1;
 }
 
-int front(Vector *v)
+int vector_front(Vector *v)
 {
     if (v->size > 0)
         return v->data[0];
@@ -104,22 +104,22 @@ int front(Vector *v)
         return -1;
 }
 
-int empty(Vector *v)
+int vector_empty(Vector *v)
 {
     return v->size == 0;
 }
 
-int capacity(Vector *v)
+int vector_capacity(Vector *v)
 {
     return v->capacity;
 }
 
-int size(Vector *v)
+int vector_size(Vector *v)
 {
     return v->size;
 }
 
-void display(Vector *v)
+void vector_display(Vector *v)
 {
     for (int i = 0; i < v->size; i++)
     {
@@ -128,7 +128,7 @@ void display(Vector *v)
     printf("\n");
 }
 
-void pop_back(Vector *v)
+void vector_pop_back(Vector *v)
 {
     if (v->size == 0)
     {
@@ -137,7 +137,7 @@ void pop_back(Vector *v)
     v->size--;
 }
 
-void push_back(Vector *v, int value)
+void vector_push_back(Vector *v, int value)
 {
     if (v->data == NULL || v->capacity == 0)
     {
@@ -153,7 +153,7 @@ void push_back(Vector *v, int value)
     v->size++;
 }
 
-int init(Vector *v)
+int vector_init(Vector *v)
 {
     if (!v)
     {
